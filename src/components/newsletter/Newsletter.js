@@ -11,8 +11,10 @@ export class Newsletter extends HTMLElement {
     connectedCallback() {
       const $news = document.createElement("section")
       $news.className = "newsletter-container"
+      
       const slot = document.createElement("slot")
       $news.append(slot)
+      
       slot.setHTMLUnsafe(/*html*/`
           <h1 class="newsletter-container__title">Latest Blogs</h1>
           <p class="newsletter-container__text">

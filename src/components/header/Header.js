@@ -13,8 +13,10 @@ export class Header extends HTMLElement {
   connectedCallback() {
     const $header = document.createElement("header");
     $header.className = "header-container"
+    
     const slot = document.createElement("slot")
     $header.append(slot)
+    
     slot.setHTMLUnsafe(/*html*/`
       <div class="header-container__wrapper">
         <img class="header-container__logo" src="${assets.logo}" alt="blogger logo" width="180" height="180">
