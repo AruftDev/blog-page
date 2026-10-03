@@ -23,14 +23,16 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-  font-weight: 500;  /* font-medium */
+  font-weight: 500; /* font-medium */
   padding: 1.5rem 2rem;
   border: 1px solid #000;
   background: #fff;
   color: #000;
   box-shadow: -7px 7px 0px #000;
   cursor: pointer;
-  transition: box-shadow 0.15s ease-out, transform 0.3s ease;
+  transition:
+    box-shadow 0.15s ease-out,
+    transform 0.3s ease;
 }
 
 .header-container__btn__arrow {

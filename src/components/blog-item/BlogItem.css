@@ -82,7 +82,7 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-weight: 500;  /* font-medium */
+  font-weight: 500; /* font-medium */
   padding: 1rem;
   border: 1px solid #000;
   background: #fff;
@@ -90,7 +90,9 @@
   box-shadow: -7px 7px 0px #000;
   cursor: pointer;
   outline: none;
-  transition: box-shadow 0.15s ease, transform 0.3s ease;
+  transition:
+    box-shadow 0.15s ease,
+    transform 0.3s ease;
 }
 
 .blog-content__button:hover {

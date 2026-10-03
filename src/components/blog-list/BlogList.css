@@ -21,7 +21,9 @@
   cursor: pointer;
   background: transparent;
   color: #000;
-  transition: background 0.3s ease, color 0.3s ease;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
 }
 
 .blog-list-container__filter__btn.active,
