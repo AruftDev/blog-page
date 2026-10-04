@@ -36,6 +36,14 @@ export class BlogItem extends HTMLElement {
           <button class="blog-content__button">Read More <img src="${assets.arrow}" alt="arrow icon" width="12" class="blog-content__button__arrow" /></button>
         </div>
       `);
+    
+    const moreBtn = slot.querySelector(".blog-content__button")
+    moreBtn.addEventListener("click", () => {
+      const urlTitle = encodeURIComponent(title)
+
+      window.location.href = `/pages/post-page/?title=${urlTitle}`;
+    });
+    
     this.shadowRoot.append($blogItem);
   }
 }

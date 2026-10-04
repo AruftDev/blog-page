@@ -1,0 +1,25 @@
+@custom-media --sm (width <= 640px);
+@custom-media --md (width <= 768px);
+@custom-media --lg (width <= 1024px);
+
+.footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 0.8rem;
+  background: #000;
+  color: #fff;
+  padding: 2rem 0;
+}
+
+.footer__copy {
+  font-size: 1.4rem;
+}
+
+@media (--sm) {
+  .footer {
+    gap: 0;
+    flex-direction: column;
+  }
+  
+}

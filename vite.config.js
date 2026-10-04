@@ -1,4 +1,5 @@
 import { defineConfig } from "vite"
+import { resolve } from "path"
 
 export default defineConfig({
   root: "src",
@@ -17,5 +18,11 @@ export default defineConfig({
   },
   build: {
     outDir: "../dist",
+    rollupOptions: {
+      input: {
+        main: resolve(import.meta.dirname, "src/index.html"),
+        posts: resolve(import.meta.dirname, "src/pages/post-page/index.html"),
+      },
+    },
   }
 })
