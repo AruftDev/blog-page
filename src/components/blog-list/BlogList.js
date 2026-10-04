@@ -27,6 +27,7 @@ export class BlogList extends HTMLElement {
           .map(
             (post) => `
             <blog-item
+              id="${post.id}"
               title="${post.title}"
               image="${post.image}"
               category="${post.category}"

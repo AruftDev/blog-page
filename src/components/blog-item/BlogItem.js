@@ -16,6 +16,7 @@ export class BlogItem extends HTMLElement {
     const slot = document.createElement("slot");
     $blogItem.append(slot);
 
+    const id = this.getAttribute("id") || "";
     const image = this.getAttribute("image") || "";
     const title = this.getAttribute("title") || "";
     const category = this.getAttribute("category") || "";
@@ -23,27 +24,29 @@ export class BlogItem extends HTMLElement {
     const author_img = this.getAttribute("author_img") || "";
     const date = this.getAttribute("date") || "";
     const description = this.getAttribute("description") || "";
-    const formattedDate = date ? new Date(date).toLocaleDateString() : "";
+    const formattedDate = date && !isNaN(date) ? new Date(Number(date)).toLocaleDateString("es-ES", { year: "numeric", month: "long", day: "numeric" }) : "";
 
     slot.setHTMLUnsafe(/*html*/ `
-        <img src="${image}" alt="${title}" width="400" height="auto" class="blog-container__image loading="lazy" />
+        <a href="./pages/post-page/?id=${id}"><img src="${image}" alt="${title}" width="400" height="auto" class="blog-container__image loading="lazy" /></a>
         <p class="blog-container__category">${category}</p>
         <small class="blog-container__author"><img src="${author_img}" alt="profile icon" class="blog-container__author__img" width="32" height="32" /> ${author}</small>
         <small class="blog-container__date"><span>Fecha: </span> ${formattedDate}</small>
         <div class="blog-content">
           <h5 class="blog-content__title">${title}</h5>
           <p class="blog-content__description">${description}</p>
-          <button class="blog-content__button">Read More <img src="${assets.arrow}" alt="arrow icon" width="12" class="blog-content__button__arrow" /></button>
+          <button href="./pages/post-page/?id=${id}" class="blog-content__button">Read More <img src="${assets.arrow}" alt="arrow icon" width="12" class="blog-content__button__arrow" /></button>
         </div>
       `);
-    
-    const moreBtn = slot.querySelector(".blog-content__button")
-    moreBtn.addEventListener("click", () => {
-      const urlTitle = encodeURIComponent(title)
 
-      window.location.href = `/pages/post-page/?title=${urlTitle}`;
+    const moreBtn = slot.querySelector(".blog-content__button");
+    moreBtn.addEventListener("click", () => {
+      if (id) {
+        window.location.href = `/pages/post-page/?id=${id}`;
+      } else {
+        console.error("No se encuentra el post")
+      }
     });
-    
+
     this.shadowRoot.append($blogItem);
   }
 }
