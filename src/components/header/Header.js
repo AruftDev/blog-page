@@ -19,7 +19,7 @@ export class Header extends HTMLElement {
 
     slot.setHTMLUnsafe(/*html*/ `
       <div class="header-container__wrapper">
-        <img class="header-container__logo" src="${assets.logo}" alt="blogger logo" width="180" height="180">
+        <a href="/"><img class="header-container__logo" src="${assets.logo}" alt="blogger logo" width="180" height="180"></a>
       <button class="header-container__btn">
         Get Started <img src="${assets.arrow}" class="header-container__btn__arrow" alt="arrow icon" />
       </button>
