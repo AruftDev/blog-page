@@ -2,6 +2,7 @@ import { defineConfig } from "vite"
 import { resolve } from "path"
 
 export default defineConfig({
+  base: "/blog-page/",
   root: "src",
   publicDir: "../public",
   plugins: [],
@@ -17,6 +18,7 @@ export default defineConfig({
     port: 1234
   },
   build: {
+    cssMinify: "lightningcss",
     outDir: "../dist",
     rollupOptions: {
       input: {

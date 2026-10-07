@@ -8,7 +8,8 @@
     "build": "vite build",
     "preview": "vite preview",
     "lint": "oxlint src/",
-    "format": "oxfmt src/"
+    "format": "oxfmt src/",
+    "deploy": "gh-pages -d dist/"
   },
   "keywords": [],
   "author": "AruftDev",
@@ -23,6 +24,7 @@
   "packageManager": "pnpm@12.8.1",
   "type": "module",
   "devDependencies": {
+    "gh-pages": "^6.3.0",
     "lightningcss": "^1.33.0",
     "oxfmt": "^0.71.0",
     "oxlint": "^1.86.0",
